@@ -36,8 +36,8 @@ context ".add_entry" do
 context ".delete_entry" do
     it "deletes only one entry from the address book" do
     book = AddressBook.new
-     book.delete_entry(1)
-    expect(book.entries.size).eql ? book.entries.size - 1   
+     book.delete_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+    # expect(book.entries.size).eql ? book.entries.size - 1   
   end
  end
 end
