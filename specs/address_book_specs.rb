@@ -85,4 +85,47 @@ context ".import_from_csv" do
       end 
 
    end 
+
+   context ".binary_search" do
+     
+     it "searches AddressBook for a non-existent entry" do
+       book.import_from_csv("entries.csv")
+       entry = book.binary_search("Dan")
+       expect(entry).to be_nil
+     end 
+
+     it "searches AddressBook for Bill" do
+       book.import_from_csv("entries.csv")
+       entry = book.binary_search("Bill")
+       expect entry.instance_of?(Entry)
+       check_entry(entry, "Bill", "555-555-5555", "bill@blocmail.com")
+     end
+  
+     it "searches AddressBook for Joe" do
+       book.import_from_csv("entries.csv")
+       entry = book.binary_search("Joe")
+       expect entry.instance_of?(Entry)
+       check_entry(entry, "Joe", "555-555-5555", "joe@blocmail.com")
+     end 
+ 
+     it "searches AddressBook for Sally" do
+       book.import_from_csv("entries.csv")
+       entry = book.binary_search("Sally")
+       expect entry.instance_of?(Entry)
+       check_entry(entry, "Sally", "555-555-5555", "sally@blocmail.com")
+     end 
+ 
+     it "searches AddressBook for Sussie" do
+       book.import_from_csv("entries.csv")
+       entry = book.binary_search("Sussie")
+       expect entry.instance_of?(Entry)
+       check_entry(entry, "Sussie", "555-555-5555", "sussie@blocmail.com")
+     end
+     it "searches AddressBook for Billy" do
+       book.import_from_csv("entries.csv")
+       entry = book.binary_search("Billy")
+       expect(entry).to be_nil
+     end
+
+   end
 end
