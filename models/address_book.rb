@@ -18,4 +18,8 @@ class AddressBook
  # #9
      @entries.insert(index, Entry.new(name, phone, email))
    end
+   
+   def import_from_csv(file_name)
+     # Implementation goes here
+   end
 end
