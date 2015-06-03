@@ -33,4 +33,7 @@ class AddressBook
  
      return csv.count
    end
+   def import_from_another_csv(file_name)
+       self.import_from_csv(file_name)
+   end 
 end
