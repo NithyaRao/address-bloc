@@ -26,8 +26,13 @@ end
 =======
    
    def remove_entry(entry)
+<<<<<<< HEAD
    @entries.delete_if {|index| entry == index}
   end
+=======
+      @entries.delete_if {|index| entry == index}
+   end
+>>>>>>> checkpoint-24-addressbloc-search
 
    def import_from_csv(file_name)
      # Implementation goes here
@@ -42,5 +47,41 @@ end
  
      return csv.count
    end
+<<<<<<< HEAD
 >>>>>>> checkpoint-23-addressbloc-data
 end
+=======
+
+   def binary_search(name)
+     lower = 0
+     upper = entries.length - 1
+
+     while lower <= upper
+       mid = (lower + upper) / 2
+       mid_name = entries[mid].name
+       if name == mid_name
+         return entries[mid]
+       elsif name < mid_name
+         upper = mid - 1
+       elsif name > mid_name
+         lower = mid + 1
+       end
+     end
+
+     return nil
+   end
+
+    def iterative_search(name)
+         cur_index = 0
+         upper  = entries.length
+        while ( cur_index < upper)
+          if name == entries[cur_index].name
+              return entries[cur_index]
+          end    
+          cur_index += 1 
+        end  
+
+       return nil
+    end
+end
+>>>>>>> checkpoint-24-addressbloc-search
