@@ -20,11 +20,9 @@ context "attributes" do
      it "should initialize entries as empty" do
        expect(book.entries.size).eql? 0
      end
-<<<<<<< HEAD
-end
-=======
 
->>>>>>> checkpoint-23-addressbloc-data
+end
+
 context ".add_entry" do
      it "adds only one entry to the address book" do 
        book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
@@ -41,7 +39,7 @@ context ".add_entry" do
        expect(new_entry.email).eql? 'augusta.king@lovelace.com'
      end
    end
-<<<<<<< HEAD
+
  
 context ".remove_entry" do
     it "deletes only one entry from the address book" do
@@ -51,7 +49,6 @@ context ".remove_entry" do
      expect(book.entries.size).eql? 0    
   end
  end
-=======
 
 context ".import_from_csv" do
     it "imports correct number of entries" do
@@ -98,11 +95,7 @@ context ".import_from_csv" do
         check_entry(entry_five, "Sussie", "555-555-5555", "sussie@blocmail.com")
       end 
 
-   end 
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> checkpoint-23-addressbloc-data
-=======
+   end
 
    context ".binary_search" do
      
@@ -189,8 +182,6 @@ context ".import_from_csv" do
      end
 
    end
->>>>>>> checkpoint-24-addressbloc-search
-=======
 
    context ".import_from_another_csv" do
        it "imports correct number of entries" do
@@ -223,6 +214,5 @@ context ".import_from_csv" do
        check_entry(entry_three, "Jess", "555-555-5555", "jess@blocmail.com")
       end
      end
->>>>>>> checkpoint-23-addressbloc-assignment
 end
 

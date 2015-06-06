@@ -19,25 +19,11 @@ class AddressBook
  # #9
      @entries.insert(index, Entry.new(name, phone, email))
    end
-<<<<<<< HEAD
+
+
 def remove_entry(entry)
-   @entries.delete_if {|index| entry == index}
-end
-=======
-   
-   def remove_entry(entry)
-<<<<<<< HEAD
-<<<<<<< HEAD
-   @entries.delete_if {|index| entry == index}
-  end
-=======
       @entries.delete_if {|index| entry == index}
-   end
->>>>>>> checkpoint-24-addressbloc-search
-=======
-   @entries.delete_if {|index| entry == index}
-   end
->>>>>>> checkpoint-23-addressbloc-assignment
+end
 
    def import_from_csv(file_name)
      # Implementation goes here
@@ -52,11 +38,8 @@ end
  
      return csv.count
    end
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> checkpoint-23-addressbloc-data
+
 end
-=======
 
    def binary_search(name)
      lower = 0
@@ -89,10 +72,8 @@ end
 
        return nil
     end
-=======
+
    def import_from_another_csv(file_name)
        self.import_from_csv(file_name)
    end 
->>>>>>> checkpoint-23-addressbloc-assignment
 end
->>>>>>> checkpoint-24-addressbloc-search
