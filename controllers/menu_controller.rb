@@ -15,7 +15,8 @@ require_relative "../models/address_book"
      puts "3 - Search for an entry"
      puts "4 - View Entry Number n"
      puts "5 - Import entries from a CSV"
-     puts "6 - Exit"
+     puts "6 - Detonate: Delete all entries"
+     puts "7 - Exit"
      print "Enter your selection: "
  
  # #3
@@ -43,10 +44,43 @@ require_relative "../models/address_book"
           read_csv
           main_menu
        when 6
+          system "clear"
+          delete_all_entries
+          delete_all_menu 
+       when 7
           puts "Good-bye!"
  # #8
           exit(0)
  # #9
+        else
+           system "clear"
+           puts "Sorry, that is not a valid input"
+           main_menu
+        end
+   end
+
+ def delete_all_menu
+   
+     puts "Main Menu - #{@address_book.entries.count} entries"
+     puts "1 - Create an entry"
+     puts "2 - Import entries from a CSV"
+     puts "3 - Exit"
+     print "Enter your selection: "
+ 
+     selection = gets.to_i
+     puts "You picked #{selection}"
+     case selection
+       when 1
+          system "clear"
+          create_entry
+          main_menu
+       when 2
+          system "clear"
+          read_csv
+          main_menu
+       when 3
+          puts "Good-bye!"
+          exit(0)
         else
            system "clear"
            puts "Sorry, that is not a valid input"
@@ -141,6 +175,28 @@ require_relative "../models/address_book"
    def delete_entry(entry)
      @address_book.entries.delete(entry)
      puts "#{entry.name} has been deleted"
+   end
+
+   def delete_all_entries
+     system "clear"
+     puts "Delete all AddressBook Entries! Are you sure (Y/N) ? : " 
+     input = gets.chomp.upcase
+     if input == 'Y'  
+        total_entries = @address_book.entries.count
+        @address_book.entries.each do |entry|
+         delete_entry(entry)
+        end
+        system "clear"
+        puts "#{total_entries} entries has been deleted " 
+        delete_all_menu
+     elsif input == 'N'
+       puts "No entries deleted "
+       main_menu
+     else 
+        system "clear"
+        puts "Sorry, that is not a valid input"
+        delete_all_entries
+     end
    end
 
    def edit_entry(entry)
