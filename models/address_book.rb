@@ -6,6 +6,7 @@ class AddressBook
  def initialize
      @entries = []
    end
+
  def add_entry(name, phone, email)
  # #7
      index = 0
@@ -21,9 +22,9 @@ class AddressBook
    end
 
 
-def remove_entry(entry)
+  def remove_entry(entry)
       @entries.delete_if {|index| entry == index}
-end
+  end
 
    def import_from_csv(file_name)
      # Implementation goes here
@@ -38,8 +39,8 @@ end
  
      return csv.count
    end
-
-end
+#
+#end
 
    def binary_search(name)
      lower = 0

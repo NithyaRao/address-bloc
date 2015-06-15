@@ -94,11 +94,11 @@ require_relative "../models/address_book"
     system "clear"
     print "Enter the entry number to view: "
     selection = gets.to_i
-   if selection > 0
+    if selection > 0
       puts @address_book.entries[selection-1].to_s
-   else 
+    else 
      puts "Invalid Entry.Please enter a valid number"
-   end
+    end
    # system "clear"
    end
 
@@ -150,15 +150,18 @@ require_relative "../models/address_book"
    end
 
    def delete_all_entries
+     cur_entry = 0
      system "clear"
      puts "Delete all AddressBook Entries! Are you sure (Y/N) ? : " 
      input = gets.chomp.upcase
      if input == 'Y'  
         total_entries = @address_book.entries.count
-        @address_book.entries.each do |entry|
-         delete_entry(entry)
-        end
-        system "clear"
+        while cur_entry < total_entries
+        delete_entry(@address_book.entries.at(0))
+        cur_entry += 1
+     end
+
+       # system "clear"
         puts "#{total_entries} entries has been deleted " 
         delete_all_menu
      elsif input == 'N'
@@ -244,12 +247,13 @@ require_relative "../models/address_book"
      end 
   end
 
-def delete_all_menu
+   def delete_all_menu
    
-     puts "Main Menu - #{@address_book.entries.count} entries"
+     # puts "Main Menu - #{@address_book.entries.count} entries"
      puts "1 - Create an entry"
      puts "2 - Import entries from a CSV"
-     puts "3 - Exit"
+     puts "3 - Return to Main Menu"
+     puts "4 - Exit"
      print "Enter your selection: "
  
      selection = gets.to_i
@@ -264,6 +268,9 @@ def delete_all_menu
           read_csv
           main_menu
        when 3
+          system "clear"
+          main_menu
+       when 4
           puts "Good-bye!"
           exit(0)
         else
