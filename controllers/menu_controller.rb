@@ -59,35 +59,7 @@ require_relative "../models/address_book"
         end
    end
 
- def delete_all_menu
-   
-     puts "Main Menu - #{@address_book.entries.count} entries"
-     puts "1 - Create an entry"
-     puts "2 - Import entries from a CSV"
-     puts "3 - Exit"
-     print "Enter your selection: "
  
-     selection = gets.to_i
-     puts "You picked #{selection}"
-     case selection
-       when 1
-          system "clear"
-          create_entry
-          main_menu
-       when 2
-          system "clear"
-          read_csv
-          main_menu
-       when 3
-          puts "Good-bye!"
-          exit(0)
-        else
-           system "clear"
-           puts "Sorry, that is not a valid input"
-           main_menu
-        end
-   end
-
  # #10
    def view_all_entries
      system "clear"
@@ -242,7 +214,7 @@ require_relative "../models/address_book"
      else
        system "clear"
        puts "#{selection} is not a valid input"
-       entries_submenu(entry)
+       entry_submenu(entry)
      end 
   end
 
@@ -256,8 +228,6 @@ require_relative "../models/address_book"
  
      case selection
  
-     when "n"
-
      when "d"
       delete_entry(entry)
      when "e"
@@ -274,5 +244,33 @@ require_relative "../models/address_book"
      end 
   end
 
+def delete_all_menu
+   
+     puts "Main Menu - #{@address_book.entries.count} entries"
+     puts "1 - Create an entry"
+     puts "2 - Import entries from a CSV"
+     puts "3 - Exit"
+     print "Enter your selection: "
+ 
+     selection = gets.to_i
+     puts "You picked #{selection}"
+     case selection
+       when 1
+          system "clear"
+          create_entry
+          main_menu
+       when 2
+          system "clear"
+          read_csv
+          main_menu
+       when 3
+          puts "Good-bye!"
+          exit(0)
+        else
+           system "clear"
+           puts "Sorry, that is not a valid input"
+           main_menu
+        end
+   end
 
  end
